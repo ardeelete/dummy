@@ -1,0 +1,32 @@
+{
+  "name": "dummy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fpNodeSerial.js",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "commander": "^2.19.0",
+    "delay": "^3.0.0",
+    "express": "^4.14.1",
+    "http-post": "^0.1.1",
+    "mysql": "^2.14.1",
+    "serialport": "^6.2.2",
+    "socket.io": "^2.0.3",
+    "websocket-client": "^1.0.0",
+    "websocket": "^1.0.24"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardeelete/dummy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ardeelete/dummy/issues"
+  },
+  "homepage": "https://github.com/ardeelete/dummy#readme"
+}
