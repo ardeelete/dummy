@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>New Employee Form </h2>
+  <br>
+    <div class="form-group">
+      <label for="emp_name">Full Name: (Surname, Firstname M.I.)</label>
+      <input type="text" class="form-control" id="emp_name" placeholder="Enter Full Name" name="emp_name">
+    </div>
+    <button class="btn btn-primary">Enroll</button>
+  </form>
+  <br>
+  <input type="text" class="form-control" id="uid" name="uid" readonly required>
+</div>
+
+
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script>
+jQuery(function($){
+  var socket = io.connect();
+
+  
+  $("button").click(function(){
+    var name_value = $('#emp_name').val();
+    socket.emit('enroll_event', {command: 'enroll', name: name_value});
+    });
+  
+  //socket handler for realtime table update
+  socket.on('enroll_response', function(data){
+     console.log(data);
+     var $str = "";
+     document.getElementById('uid').value=data;
+     
+    
+  });
+
+})
+</script>
+
+</body>
+</html>
